@@ -10,4 +10,7 @@
         <item name="android:fontFamily">@font/rubikregular</item>
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

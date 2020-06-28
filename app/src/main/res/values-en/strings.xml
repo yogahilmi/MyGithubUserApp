@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="url_github">https://github.com/yogahilmi</string>
+    <string name="github_user">Github User</string>
+    <string name="hello_blank_fragment">Hello Fragment</string>
+    <string name="bio">Bio</string>
+    <string name="username">yogahilmi</string>
+    <string name="email">yogahilmi@gmail.com</string>
+    <string name="repository">Repository</string>
+    <string name="exit">Are you sure?</string>
+    <string name="confirmexit">Yes</string>
+    <string name="cancelexit">No</string>
+    <string name="busy">Searching failed. Please try again later.</string>
+    <string name="error">Connection error</string>
+    <string name="try_again">Please check your connection and try again.</string>
+    <string name="search">Search Github User</string>
+</resources>

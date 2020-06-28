@@ -1,6 +1,5 @@
 package com.tasanah.mygithubuserapp.adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,25 +19,24 @@ import java.util.List;
  27 June 2020
  */
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
-    private Context context;
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.UserViewHolder>{
+
     private List<User> userList ;
 
-    public UserAdapter(Context context, List<User> userList) {
-        this.context = context;
+    public SearchAdapter(List<User> userList) {
         this.userList = userList;
     }
 
     @NonNull
     @Override
-    public UserAdapter.UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SearchAdapter.UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user,parent,false);
 
         return new UserViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserAdapter.UserViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SearchAdapter.UserViewHolder holder, int position) {
         User user = userList.get(position);
         holder.tv_name.setText(user.getLogin());
         holder.tv_url.setText(user.getHtmlUrl());
@@ -49,11 +47,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public int getItemCount() {
-        if (userList == null){
-            return 0;
-        } else {
-            return userList.size();
-        }
+        return userList.size();
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -70,7 +64,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         @Override
         public void onClick(View v) {
             User user = userList.get(getAdapterPosition());
-            Intent intent = new Intent(context, DetailActivity.class);
+            Intent intent = new Intent(v.getContext(), DetailActivity.class);
             intent.putExtra("DATA_USER",user);
             v.getContext().startActivity(intent);
         }
