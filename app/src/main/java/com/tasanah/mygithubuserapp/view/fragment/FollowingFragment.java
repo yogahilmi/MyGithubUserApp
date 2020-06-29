@@ -35,8 +35,11 @@ public class FollowingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_following, container, false);
-        setDataFollowers(view);
         return view;
+    }
+
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        setDataFollowers(view);
     }
 
     private void setDataFollowers(View view){
