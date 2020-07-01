@@ -3,9 +3,11 @@
     <string name="followers">Followers</string>
     <string name="following">Following</string>
     <string name="url_github">https://github.com/yogahilmi</string>
-    <string name="github_user">Github User</string>
+    <string name="change_language">Change Language</string>
+    <string name="github_user">Github User App</string>
+    <string name="user_fav">Github User Favorite</string>
+    <string name="detail_user">Detail User</string>
     <string name="hello_blank_fragment">Hello Fragment</string>
-    <string name="bio">Bio</string>
     <string name="username">yogahilmi</string>
     <string name="email">yogahilmi@gmail.com</string>
     <string name="repository">Repository</string>
@@ -16,4 +18,16 @@
     <string name="error">Connection error</string>
     <string name="try_again">Please check your connection and try again.</string>
     <string name="search">Search Github User</string>
+    <string name="ContentTittleNotif">My Github User</string>
+    <string name="ContentTextNotif">Reminder</string>
+    <string name="SubTextNotif">Lets check your Favourite Github User!</string>
+    <string name="setting">Setting</string>
+    <string name="daily_notification">Daily Notification</string>
+    <string name="add_fav">Success added favorite</string>
+    <string name="del_fav">Success delete favorite</string>
+    <string name="no_data">Data tidak ada</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="home_favorite">User Favorite</string>
+    <string name="placeholder_error_tittle">Oops…</string>
+    <string name="placeholder_not_found_favorite_message">You doesn\'t have favorite users</string>
 </resources>

@@ -1,8 +1,8 @@
 package com.tasanah.mygithubuserapp.connection;
 
-import com.tasanah.mygithubuserapp.model.response.Search;
 import com.tasanah.mygithubuserapp.model.User;
 import com.tasanah.mygithubuserapp.model.UserDetail;
+import com.tasanah.mygithubuserapp.model.response.Search;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;

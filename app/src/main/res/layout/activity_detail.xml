@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +8,59 @@
     android:layout_height="match_parent"
     tools:context=".view.DetailActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_detail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/detail_back"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_all_arrow"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="@string/detail_user"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:id="@+id/detail_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_settings" />
+
+        </FrameLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_detail">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/profile_appBarLayout"
@@ -135,7 +186,7 @@
                 android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bio"
+                android:text="@string/username"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/colorText"
                 android:textSize="15sp"
@@ -220,13 +271,13 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <View
+                            <TextView
                                 android:layout_width="10dp"
                                 android:layout_height="10dp"
                                 android:layout_gravity="center"
                                 android:background="@color/colorShimmer" />
 
-                            <View
+                            <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="10dp"
                                 android:layout_marginTop="15dp"
@@ -239,13 +290,13 @@
                             android:layout_marginStart="15dp"
                             android:orientation="vertical">
 
-                            <View
+                            <TextView
                                 android:layout_width="10dp"
                                 android:layout_height="10dp"
                                 android:layout_gravity="center"
                                 android:background="@color/colorShimmer" />
 
-                            <View
+                            <TextView
                                 android:layout_width="50dp"
                                 android:layout_height="10dp"
                                 android:layout_marginTop="15dp"
@@ -258,22 +309,22 @@
                             android:layout_marginStart="15dp"
                             android:orientation="vertical">
 
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorShimmer" />
+                            <TextView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="center"
+                                android:background="@color/colorShimmer" />
 
-                        <View
-                            android:layout_width="50dp"
-                            android:layout_height="10dp"
-                            android:layout_marginTop="15dp"
-                            android:background="@color/colorShimmer" />
+                            <TextView
+                                android:layout_width="50dp"
+                                android:layout_height="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/colorShimmer" />
                     </LinearLayout>
 
                 </LinearLayout>
 
-                    <View
+                    <TextView
                         android:id="@+id/tv_fullname1"
                         android:layout_width="100dp"
                         android:layout_height="18dp"
@@ -282,7 +333,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
-                    <View
+                    <TextView
                         android:id="@+id/tv_username1"
                         android:layout_width="150dp"
                         android:layout_height="18dp"
@@ -291,7 +342,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_fullname1" />
 
-                    <View
+                    <TextView
                         android:id="@+id/tv_company1"
                         android:layout_width="180dp"
                         android:layout_height="18dp"
@@ -300,7 +351,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_username1" />
 
-                    <View
+                    <TextView
                         android:id="@+id/tv_location1"
                         android:layout_width="150dp"
                         android:layout_height="18dp"
@@ -342,6 +393,22 @@
 
     </androidx.core.widget.NestedScrollView>
 
+            <com.github.ivbaranov.mfb.MaterialFavoriteButton
+                android:id="@+id/detail_floatingAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                app:mfb_animate_favorite="true"
+                app:mfb_type="heart"
+                app:mfb_color="white"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_search"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

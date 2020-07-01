@@ -21,7 +21,7 @@ import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.UserViewHolder>{
 
-    private List<User> userList ;
+    private List<User> userList;
 
     public SearchAdapter(List<User> userList) {
         this.userList = userList;

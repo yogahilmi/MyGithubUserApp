@@ -21,12 +21,12 @@ import java.util.List;
  */
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
-    private Context context;
+    private Context c;
     private List<User> userList ;
 
-    public UserAdapter(Context context, List<User> userList) {
-        this.context = context;
-        this.userList = userList;
+    public UserAdapter(Context c, List<User> userGithubList) {
+        this.c = c;
+        this.userList = userGithubList;
     }
 
     @NonNull
@@ -39,29 +39,25 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UserAdapter.UserViewHolder holder, int position) {
-        User user = userList.get(position);
-        holder.tv_name.setText(user.getLogin());
-        holder.tv_url.setText(user.getHtmlUrl());
+        User userGithub = userList.get(position);
+        holder.tv_name.setText(userGithub.getLogin());
+        holder.tv_url.setText(userGithub.getHtmlUrl());
         Glide.with(holder.itemView.getContext())
-                .load(user.getAvatarUrl())
-                .into(holder.imageView);
+                .load(userGithub.getAvatarUrl())
+                .into(holder.img);
     }
 
     @Override
     public int getItemCount() {
-        if (userList == null){
-            return 0;
-        } else {
-            return userList.size();
-        }
+        return userList.size();
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imageView;
-        TextView tv_url,tv_name;
-        public UserViewHolder(@NonNull View itemView) {
+        ImageView img;
+        TextView tv_url, tv_name;
+        UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageList);
+            img = itemView.findViewById(R.id.imageList);
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_url = itemView.findViewById(R.id.tv_url);
             itemView.setOnClickListener(this);
@@ -69,9 +65,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         @Override
         public void onClick(View v) {
-            User user = userList.get(getAdapterPosition());
-            Intent intent = new Intent(context, DetailActivity.class);
-            intent.putExtra("DATA_USER",user);
+            User userGithub = userList.get(getAdapterPosition());
+            Intent intent = new Intent(c, DetailActivity.class);
+            intent.putExtra("DATA_USER",userGithub);
             v.getContext().startActivity(intent);
         }
     }

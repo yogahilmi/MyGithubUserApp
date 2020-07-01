@@ -4,6 +4,8 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 import com.tasanah.mygithubuserapp.model.User;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  Created by Yoga Hilmi Tasanah
  27 June 2020
@@ -19,30 +21,17 @@ public class Search {
     @SerializedName("items")
     private List<User> items;
 
-    public int getTotalCount() {
-        return totalCount;
-    }
-
-    public void setTotalCount(int totalCount) {
+    public Search(int totalCount, boolean incompleteResults, List<User> items) {
         this.totalCount = totalCount;
-    }
-
-    public boolean isIncompleteResults() {
-        return incompleteResults;
-    }
-
-    public void setIncompleteResults(boolean incompleteResults) {
         this.incompleteResults = incompleteResults;
+        this.items = items;
     }
 
     public List<User> getItems() {
         return items;
     }
 
-    public void setItems(List<User> items) {
-        this.items = items;
-    }
-
+    @NotNull
     @Override
     public String toString(){
         return

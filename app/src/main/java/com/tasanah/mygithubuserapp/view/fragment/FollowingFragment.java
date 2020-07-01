@@ -33,13 +33,11 @@ public class FollowingFragment extends Fragment {
     private ShimmerFrameLayout shimmerFrameLayout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_following, container, false);
-        return view;
-    }
-
-    public void onViewCreated(View view, Bundle savedInstanceState){
         setDataFollowers(view);
+        return view;
     }
 
     private void setDataFollowers(View view){

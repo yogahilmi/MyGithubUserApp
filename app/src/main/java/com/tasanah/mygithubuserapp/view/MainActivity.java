@@ -1,24 +1,23 @@
 package com.tasanah.mygithubuserapp.view;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.SearchView;
+import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Intent;
-import android.os.Bundle;
-import android.provider.Settings;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.SearchView;
-import android.widget.Toast;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.tasanah.mygithubuserapp.R;
-import com.tasanah.mygithubuserapp.adapter.*;
-import com.tasanah.mygithubuserapp.connection.*;
+import com.tasanah.mygithubuserapp.adapter.SearchAdapter;
+import com.tasanah.mygithubuserapp.connection.ApiService;
+import com.tasanah.mygithubuserapp.connection.RetrofitConfig;
 import com.tasanah.mygithubuserapp.model.response.Search;
-
 import org.jetbrains.annotations.NotNull;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,8 +43,14 @@ public class MainActivity extends AppCompatActivity {
         shimmerFrameLayout = findViewById(R.id.shimmer_layout);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         shimmerFrameLayout.startShimmer();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
+        ImageView imgSetting = findViewById(R.id.main_setting);
+        imgSetting.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SettingActivity.class)));
+
+        ImageView imgFavorite = findViewById(R.id.main_favorite);
+        imgFavorite.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), FavoriteActivity.class)));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             public boolean onQueryTextSubmit(String query) {
                 getSearchUser(query);
                 return false;
@@ -62,11 +67,10 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
-        ImageView img = findViewById(R.id.img_settings);
-        img.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS)));
     }
 
     private void getSearchUser(String username){
+        LinearLayout linearLayout = findViewById(R.id.linear_search);
         ApiService apiService = RetrofitConfig.getRetrofit().create(ApiService.class);
         Call<Search> call = apiService.getGithubSearch(username);
         call.enqueue(new Callback<Search>() {
@@ -77,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
                     recyclerView.setAdapter(searchAdapter);
                     shimmerFrameLayout.setVisibility(View.GONE);
                     shimmerFrameLayout.stopShimmer();
+                    if (recyclerView.isShown()) {
+                        linearLayout.setVisibility(View.GONE);
+                    } else {
+                        linearLayout.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     Toast.makeText(MainActivity.this, getString(R.string.busy), Toast.LENGTH_SHORT).show();
                 }

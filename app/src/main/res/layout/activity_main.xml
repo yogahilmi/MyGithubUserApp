@@ -19,6 +19,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,55 +27,82 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"/>
+
             <ImageView
-                android:id="@+id/img_settings"
+                android:id="@+id/main_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="60dp"
                 android:contentDescription="@null"
+                android:src="@drawable/ic_settings" />
+
+            <ImageView
+                android:id="@+id/main_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_language_white"/>
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_favorite"
+                android:contentDescription="@null" />
 
         </FrameLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <SearchView
-        android:id="@+id/sv_user"
-        style="@style/SearchViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/background_search"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/search"
-        app:layout_constraintTop_toBottomOf="@+id/tb"/>
+        <SearchView
+            android:id="@+id/sv_user"
+            style="@style/SearchViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/background_search"
+            android:iconifiedByDefault="false"
+            android:queryHint="@string/search"
+            app:layout_constraintTop_toBottomOf="@+id/tb"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_user"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_user" />
+        <LinearLayout
+            android:id="@+id/linear_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:shimmer_duration="2500"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_user"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_user">
-    </com.facebook.shimmer.ShimmerFrameLayout>
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:lottie_rawRes="@raw/empty"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sv_user"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/item_user" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:shimmer_duration="2500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sv_user"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/item_user">
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
