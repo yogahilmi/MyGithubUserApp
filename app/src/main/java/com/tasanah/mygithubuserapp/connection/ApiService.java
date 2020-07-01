@@ -1,6 +1,5 @@
 package com.tasanah.mygithubuserapp.connection;
 
-import com.tasanah.mygithubuserapp.model.Result;
 import com.tasanah.mygithubuserapp.model.response.Search;
 import com.tasanah.mygithubuserapp.model.User;
 import com.tasanah.mygithubuserapp.model.UserDetail;
@@ -17,9 +16,6 @@ import retrofit2.http.Query;
  */
 
 public interface ApiService {
-
-    @GET("/search/users")
-    Call<Result> getListUser(@Query("q") String login);
 
     @GET("/users/{username}/followers")
     @Headers("Authorization: token 2091dae5321b573c3cfba68ad5a8637fa0720c94")
@@ -38,5 +34,5 @@ public interface ApiService {
 
     @GET("users/{username}")
     @Headers("Authorization: token 2091dae5321b573c3cfba68ad5a8637fa0720c94")
-    Call<User> getUserDetail(@Path("username") String username);
+    Call<UserDetail> getUserDetail(@Path("username") String username);
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">MyGithubUserApp-Subs3</string>
+    <string name="app_name" translatable="false">MyGithubUserApp-Subs2</string>
     <string name="name" translatable="false">Yoga Hilmi Tasanah</string>
     <string name="followers">Pengikut</string>
     <string name="following">Mengikuti</string>
@@ -17,23 +17,4 @@
     <string name="error">Connection error</string>
     <string name="try_again">Please check your connection and try again.</string>
     <string name="search">Cari pengguna github</string>
-
-    <string name="change_language_settings">Change Language Setting</string>
-    <string name="not_found">User Not Found</string>
-    <string name="titleSearch">Github User\'s Search App</string>
-    <string name="titleDetail">Detail User</string>
-    <string name="addtofavorite">Add To Favorite</string>
-    <string name="removefromfavorite">Remove From Favorite</string>
-    <string name="success_remove_from_favorite">Success Remove From Favorite</string>
-    <string name="success_add_to_favorite">Sucess Add To Favorite</string>
-    <string name="favorite">Favorite</string>
-    <string name="user_favorite">User Favorite</string>
-    <string name="reminder_setting">Reminder Setting</string>
-    <string name="dummy_language">dummy_language</string>
-    <string name="setting">Setting</string>
-    <string name="alarm_message">Let\'s find user popular user on Github!</string>
-    <string name="repeat_set_up">Repeating Alarm Set Up</string>
-    <string name="repeat_set_down">Repeating Alarm Set Down</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
 </resources>

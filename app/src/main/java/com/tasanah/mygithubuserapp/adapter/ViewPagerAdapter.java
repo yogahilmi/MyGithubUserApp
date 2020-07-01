@@ -7,8 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.tasanah.mygithubuserapp.R;
-import com.tasanah.mygithubuserapp.model.User;
-import com.tasanah.mygithubuserapp.ui.fragment.*;
+import com.tasanah.mygithubuserapp.view.fragment.*;
 import java.util.Objects;
 
 /**
@@ -19,7 +18,7 @@ import java.util.Objects;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private final Context context;
-    public ViewPagerAdapter(Context context, FragmentManager fm, User mUser) {
+    public ViewPagerAdapter(Context context, FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.context = context;
     }
@@ -44,7 +43,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             R.string.followers,
             R.string.following
     };
-
     @Override
     public int getCount() {
         return 2;
