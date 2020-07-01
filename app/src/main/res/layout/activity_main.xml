@@ -6,75 +6,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".view.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb"
+    <LinearLayout
+        android:id="@+id/inputSearchUser"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/github_user"
-                android:layout_gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"/>
-            <ImageView
-                android:id="@+id/img_settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:contentDescription="@null"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_language_white"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-        </FrameLayout>
-    </androidx.appcompat.widget.Toolbar>
+        <EditText
+            android:id="@+id/edtSearchUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:lines="1"
+            android:background="@drawable/bg_input_edit"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
-    <SearchView
-        android:id="@+id/sv_user"
-        style="@style/SearchViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/background_search"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/search"
-        app:layout_constraintTop_toBottomOf="@+id/tb"/>
+        <ImageButton
+            android:id="@+id/btnSearchUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:src="@drawable/ic_search_white"
+            android:background="@drawable/bg_btn_blue_gradiation"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/inputSearchUser"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_user"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_user" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"/>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmer_layout"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:shimmer_duration="2500"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_user"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_user">
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

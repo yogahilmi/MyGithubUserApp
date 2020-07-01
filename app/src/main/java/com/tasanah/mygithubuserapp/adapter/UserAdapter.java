@@ -10,10 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.tasanah.mygithubuserapp.model.User;
-import com.tasanah.mygithubuserapp.view.DetailActivity;
+import com.tasanah.mygithubuserapp.ui.detail.DetailActivity;
 import com.tasanah.mygithubuserapp.R;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  Created by Yoga Hilmi Tasanah
@@ -21,58 +26,75 @@ import java.util.List;
  */
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
+    @SerializedName("items")
+    @Expose
+    private List<User> listUsers;
     private Context context;
-    private List<User> userList ;
 
-    public UserAdapter(Context context, List<User> userList) {
-        this.context = context;
-        this.userList = userList;
+    private OnItemClickCallback onItemClickCallback;
+
+    public Context getContext() {
+        return context;
     }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public UserAdapter() {
+    }
+
+    public void setListUsers(List<User> listUsers) {
+        this.listUsers = listUsers;
+    }
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
 
     @NonNull
     @Override
-    public UserAdapter.UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user,parent,false);
-
-        return new UserViewHolder(view);
+    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_items, parent, false);
+        return new UserViewHolder(mView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserAdapter.UserViewHolder holder, int position) {
-        User user = userList.get(position);
-        holder.tv_name.setText(user.getLogin());
-        holder.tv_url.setText(user.getHtmlUrl());
-        Glide.with(holder.itemView.getContext())
-                .load(user.getAvatarUrl())
-                .into(holder.imageView);
+    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+        holder.bind(listUsers.get(position));
+
     }
 
     @Override
     public int getItemCount() {
-        if (userList == null){
-            return 0;
-        } else {
-            return userList.size();
+        return this.listUsers.size();
+    }
+
+    class UserViewHolder extends RecyclerView.ViewHolder{
+        TextView tvName;
+        CircleImageView ivUserAvatar;
+
+        UserViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvName = itemView.findViewById(R.id.tvUserName);
+            ivUserAvatar = itemView.findViewById(R.id.ivUserAvatar);
+        }
+
+        void bind (final User user) {
+            tvName.setText(user.getLogin());
+
+            Glide.with(itemView.getContext())
+                    .load(user.getAvatarUrl())
+                    .apply(new RequestOptions().override(60, 60))
+                    .into(ivUserAvatar);
+
+            itemView.setOnClickListener(v -> onItemClickCallback.onItemClicked(listUsers.get(UserViewHolder.this.getAdapterPosition())));
         }
     }
 
-    public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imageView;
-        TextView tv_url,tv_name;
-        public UserViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.imageList);
-            tv_name = itemView.findViewById(R.id.tv_name);
-            tv_url = itemView.findViewById(R.id.tv_url);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            User user = userList.get(getAdapterPosition());
-            Intent intent = new Intent(context, DetailActivity.class);
-            intent.putExtra("DATA_USER",user);
-            v.getContext().startActivity(intent);
-        }
+    public interface OnItemClickCallback {
+        void onItemClicked(User data);
     }
 }
+

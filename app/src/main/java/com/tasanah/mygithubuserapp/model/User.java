@@ -3,246 +3,64 @@ package com.tasanah.mygithubuserapp.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Expose;
 
 /**
  Created by Yoga Hilmi Tasanah
  27 June 2020
  */
 
-public class User implements Parcelable{
-    @SerializedName("gists_url")
-    private String gistsUrl;
-
-    @SerializedName("repos_url")
-    private String reposUrl;
-
-    @SerializedName("following_url")
-    private String followingUrl;
-
-    @SerializedName("starred_url")
-    private String starredUrl;
-
+public class User implements Parcelable {
     @SerializedName("login")
+    @Expose
     private String login;
-
-    @SerializedName("name")
-    private String name;
-
-    @SerializedName("followers_url")
-    private String followersUrl;
-
-    @SerializedName("type")
-    private String type;
-
-    @SerializedName("url")
-    private String url;
-
-    @SerializedName("subscriptions_url")
-    private String subscriptionsUrl;
-
-    @SerializedName("received_events_url")
-    private String receivedEventsUrl;
-
     @SerializedName("avatar_url")
+    @Expose
     private String avatarUrl;
 
-    @SerializedName("events_url")
-    private String eventsUrl;
+    @SerializedName("followers")
+    @Expose
+    private Integer followers;
 
-    @SerializedName("html_url")
-    private String htmlUrl;
+    @SerializedName("following")
+    @Expose
+    private Integer following;
 
-    @SerializedName("site_admin")
-    private boolean siteAdmin;
+    @SerializedName("bio")
+    @Expose
+    private String bio;
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("name")
+    @Expose
+    private String name;
 
-    @SerializedName("gravatar_id")
-    private String gravatarId;
+    private Integer id;
 
-    @SerializedName("node_id")
-    private String nodeId;
-
-    @SerializedName("organizations_url")
-    private String organizationsUrl;
-
-    public String getGistsUrl() {
-        return gistsUrl;
-    }
-
-    public void setGistsUrl(String gistsUrl) {
-        this.gistsUrl = gistsUrl;
-    }
-
-    public String getReposUrl() {
-        return reposUrl;
-    }
-
-    public void setReposUrl(String reposUrl) {
-        this.reposUrl = reposUrl;
-    }
-
-    public String getFollowingUrl() {
-        return followingUrl;
-    }
-
-    public void setFollowingUrl(String followingUrl) {
-        this.followingUrl = followingUrl;
-    }
-
-    public String getStarredUrl() {
-        return starredUrl;
-    }
-
-    public void setStarredUrl(String starredUrl) {
-        this.starredUrl = starredUrl;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
+    public User(String login, String name, String avatarUrl, Integer followers, Integer following, String bio) {
         this.login = login;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
+        this.avatarUrl = avatarUrl;
+        this.followers = followers;
+        this.following = following;
+        this.bio = bio;
     }
 
-    public String getFollowersUrl() {
-        return followersUrl;
+    public User() {
     }
 
-    public void setFollowersUrl(String followersUrl) {
-        this.followersUrl = followersUrl;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getSubscriptionsUrl() {
-        return subscriptionsUrl;
-    }
-
-    public void setSubscriptionsUrl(String subscriptionsUrl) {
-        this.subscriptionsUrl = subscriptionsUrl;
-    }
-
-    public String getReceivedEventsUrl() {
-        return receivedEventsUrl;
-    }
-
-    public void setReceivedEventsUrl(String receivedEventsUrl) {
-        this.receivedEventsUrl = receivedEventsUrl;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
+    public User(Integer id, String login, String name, String avatarUrl) {
+        this.id = id;
+        this.login = login;
+        this.name = name;
         this.avatarUrl = avatarUrl;
     }
 
-    public String getEventsUrl() {
-        return eventsUrl;
-    }
-
-    public void setEventsUrl(String eventsUrl) {
-        this.eventsUrl = eventsUrl;
-    }
-
-    public String getHtmlUrl() {
-        return htmlUrl;
-    }
-
-    public void setHtmlUrl(String htmlUrl) {
-        this.htmlUrl = htmlUrl;
-    }
-
-    public boolean isSiteAdmin() {
-        return siteAdmin;
-    }
-
-    public void setSiteAdmin(boolean siteAdmin) {
-        this.siteAdmin = siteAdmin;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getGravatarId() {
-        return gravatarId;
-    }
-
-    public void setGravatarId(String gravatarId) {
-        this.gravatarId = gravatarId;
-    }
-
-    public String getNodeId() {
-        return nodeId;
-    }
-
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
-
-    public String getOrganizationsUrl() {
-        return organizationsUrl;
-    }
-
-    public void setOrganizationsUrl(String organizationsUrl) {
-        this.organizationsUrl = organizationsUrl;
-    }
-
-    public static Creator<User> getCREATOR() {
-        return CREATOR;
-    }
-
-    protected User(Parcel in) {
-        gistsUrl = in.readString();
-        reposUrl = in.readString();
-        followingUrl = in.readString();
-        starredUrl = in.readString();
+    public User(Parcel in) {
+        id = in.readInt();
         login = in.readString();
         name = in.readString();
-        followersUrl = in.readString();
-        type = in.readString();
-        url = in.readString();
-        subscriptionsUrl = in.readString();
-        receivedEventsUrl = in.readString();
         avatarUrl = in.readString();
-        eventsUrl = in.readString();
-        htmlUrl = in.readString();
-        siteAdmin = in.readByte() != 0;
-        id = in.readInt();
-        gravatarId = in.readString();
-        nodeId = in.readString();
-        organizationsUrl = in.readString();
+        bio = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -257,6 +75,38 @@ public class User implements Parcelable{
         }
     };
 
+    public String getLogin() {
+        return login;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public Integer getFollowers() {
+        return followers;
+    }
+
+    public Integer getFollowing() {
+        return following;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -264,24 +114,10 @@ public class User implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(gistsUrl);
-        dest.writeString(reposUrl);
-        dest.writeString(followingUrl);
-        dest.writeString(starredUrl);
+        dest.writeInt(id);
         dest.writeString(login);
         dest.writeString(name);
-        dest.writeString(followersUrl);
-        dest.writeString(type);
-        dest.writeString(url);
-        dest.writeString(subscriptionsUrl);
-        dest.writeString(receivedEventsUrl);
         dest.writeString(avatarUrl);
-        dest.writeString(eventsUrl);
-        dest.writeString(htmlUrl);
-        dest.writeByte((byte) (siteAdmin ? 1 : 0));
-        dest.writeInt(id);
-        dest.writeString(gravatarId);
-        dest.writeString(nodeId);
-        dest.writeString(organizationsUrl);
+        dest.writeString(bio);
     }
 }
