@@ -10,6 +10,8 @@ import retrofit2.http.Headers;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+import static com.tasanah.mygithubuserapp.BuildConfig.TOKEN;
+
 /**
  Created by Yoga Hilmi Tasanah
  27 June 2020
@@ -18,21 +20,21 @@ import retrofit2.http.Query;
 public interface ApiService {
 
     @GET("/users/{username}/followers")
-    @Headers("Authorization: token 2091dae5321b573c3cfba68ad5a8637fa0720c94")
+    @Headers("Authorization: token " + TOKEN)
     Call<List<User>> getUserFollowers(@Path("username") String username);
 
     @GET("/users/{username}/following")
-    @Headers("Authorization: token 2091dae5321b573c3cfba68ad5a8637fa0720c94")
+    @Headers("Authorization: token " + TOKEN)
     Call<List<User>> getUserFollowing(@Path("username") String username);
 
 
     @GET("/search/users")
-    @Headers("Authorization: token 2091dae5321b573c3cfba68ad5a8637fa0720c94")
+    @Headers("Authorization: token " + TOKEN)
     Call<Search> getGithubSearch(
             @Query("q") String username
     );
 
     @GET("users/{username}")
-    @Headers("Authorization: token 2091dae5321b573c3cfba68ad5a8637fa0720c94")
+    @Headers("Authorization: token " + TOKEN)
     Call<UserDetail> getUserDetail(@Path("username") String username);
 }

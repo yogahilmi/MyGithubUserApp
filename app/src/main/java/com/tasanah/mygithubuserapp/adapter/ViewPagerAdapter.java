@@ -38,7 +38,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return Objects.requireNonNull(fragment);
     }
 
-
     private final int[] TAB_NAME = new int[]{
             R.string.followers,
             R.string.following

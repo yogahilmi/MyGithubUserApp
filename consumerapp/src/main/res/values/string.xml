@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name" translatable="false">MyGithubUserApp-Subs3</string>
+    <string name="app_name" translatable="false">My Favorite</string>
     <string name="name" translatable="false">Yoga Hilmi Tasanah</string>
     <string name="followers">Pengikut</string>
     <string name="following">Mengikuti</string>
     <string name="url_github">https://github.com/yogahilmi</string>
     <string name="change_language">Ubah Bahasa</string>
     <string name="github_user">Aplikasi Pengguna Github</string>
-    <string name="user_fav">Pengguna Github Favorit</string>
     <string name="detail_user">Informasi Pengguna</string>
     <string name="hello_blank_fragment">Halo Fragment</string>
     <string name="username">yogahilmi</string>
     <string name="email">yogahilmi@gmail.com</string>
     <string name="repository">Repositori</string>
+    <string name="quit">Keluar</string>
     <string name="exit">Apakah anda ingin keluar?</string>
     <string name="confirmexit">Ya</string>
     <string name="cancelexit">Tidak</string>
@@ -19,17 +19,11 @@
     <string name="error">Connection error</string>
     <string name="try_again">Please check your connection and try again.</string>
     <string name="search">Cari pengguna github</string>
-    <string name="ContentTittleNotif">My Github User</string>
-    <string name="ContentTextNotif">Pengingat</string>
+    <string name="ContentTittleNotif">Github User</string>
+    <string name="ContentTextNotif">Github User</string>
     <string name="SubTextNotif">Pengin tau pengguna github? ayo masuk aplikasi github user</string>
     <string name="daily_notification">Notifikasi Harian</string>
     <string name="setting">Pengaturan</string>
     <string name="add_fav">Berhasil ditambah ke favorit</string>
     <string name="del_fav">Berhasil dihapus dari favorit</string>
-    <string name="no_data">Data tidak ada</string>
-    <string name="favorite_user">Favorite User</string>
-    <string name="home_favorite">User Favorite</string>
-    <string name="placeholder_error_tittle">Oops…</string>
-    <string name="placeholder_not_found_favorite_message">You doesn\'t have favorite users</string>
-    <string name="profile_image">Profile Image</string>
 </resources>

@@ -378,7 +378,7 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <ScrollView
             android:id="@+id/profile_nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -391,7 +391,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
             <com.github.ivbaranov.mfb.MaterialFavoriteButton
                 android:id="@+id/detail_floatingAction"
