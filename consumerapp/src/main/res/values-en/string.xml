@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="url_github">https://github.com/yogahilmi</string>
+    <string name="change_language">Change Language</string>
+    <string name="github_user">Github User App</string>
+    <string name="detail_user">Detail User</string>
+    <string name="hello_blank_fragment">Hello Fragment</string>
+    <string name="username">yogahilmi</string>
+    <string name="email">yogahilmi@gmail.com</string>
+    <string name="repository">Repository</string>
+    <string name="quit">Exit</string>
+    <string name="exit">Are you sure?</string>
+    <string name="confirmexit">Yes</string>
+    <string name="cancelexit">No</string>
+    <string name="busy">Searching failed. Please try again later.</string>
+    <string name="error">Connection error</string>
+    <string name="try_again">Please check your connection and try again.</string>
+    <string name="search">Search Github User</string>
+    <string name="ContentTittleNotif">Github User</string>
+    <string name="ContentTextNotif">Github User</string>
+    <string name="SubTextNotif">Lets check your Favourite Github User!</string>
+    <string name="setting">Setting</string>
+    <string name="daily_notification">Daily Notification</string>
+    <string name="add_fav">Success added favorite</string>
+    <string name="del_fav">Success delete favorite</string>
+</resources>

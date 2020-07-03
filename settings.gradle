@@ -1,2 +1,3 @@
+include ':consumerapp'
 include ':app'
-rootProject.name='MyGithubUserApp'
+rootProject.name='MyGithubUserApp-Subs3'
